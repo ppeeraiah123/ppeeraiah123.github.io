@@ -1,27 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    img{
-        height: 500px;
-        width: 500px;
-    }    
-    </style>
+
+<title>Hello</title>
+
+<meta http-equiv="Content-Type" type="text/html" charset="UTF-8"/>
+
+<style>
+
+*{margin:0; padding:0;}
+
+.mySlides{
+          position:relative;
+		  width:1000px;
+		  margin:40px auto;
+		  display:table;
+		 }
+		 
+.number{
+        position:absolute;
+		margin:20px;
+	   }
+	   
+.text{
+      position:absolute;
+	  bottom:20px;
+	  text-align:center;
+	  width:100%;
+	 }
+	 
+.prev, .next{
+             position:absolute;
+			 top:40%;
+			 background-color:black;
+			 color:white;
+			 padding:20px;
+			 cursor:pointer;
+			 user-select:none;
+	        }
+			
+.next{
+      right:0;
+	 }
+
+.text-align{
+            text-align:center;
+		   }
+	 
+.dot{
+     width:30px;
+	 height:30px;
+	 background-color:gray;
+	 display:inline-block;
+	}
+	
+.dot.active, .dot:hover{
+                        background-color:orange;
+					   }
+
+</style>
+
 </head>
+
 <body>
-    <h1>Images</h1>
-    
-    <p><img src="img\ge1-01.png" alt=""></p>
-    <p><img src="img\ge1-02.png" alt=""></p>
-    <p><img src="img\ge1-03.png" alt=""></p>
-    <p><img src="img\ge1-04.png" alt=""></p>
-    <p><img src="img\ge1-06.png" alt=""></p>
-    <p><img src="img\ge1-07.png" alt=""></p>
-    <p><img src="img\ge1-08.png" alt=""></p>
-   
+
+<div class="mySlides">
+<div class="number">1/8</div>
+<img src="img\ge1-01.png" width="100%"/>
+<div class="text">Text 1</div>
+</div>
+
+<div class="mySlides">
+<div class="number">2/8</div>
+<img src="img\ge1-02.png" width="100%"/>
+<div class="text">Text 2</div>
+</div>
+
+<div class="mySlides">
+<div class="number">3/8</div>
+<img src="img\ge1-03.png" width="100%"/>
+<div class="text">Text 3</div>
+</div>
+
+<div class="mySlides">
+<div class="number">4/8</div>
+<img src="img\ge1-04.png" width="100%"/>
+<div class="text">Text 4</div>
+</div>
+
+<div class="mySlides">
+    <div class="number">5/8</div>
+    <img src="img\ge1-05.png" width="100%"/>
+    <div class="text">Text 5</div>
+    </div>
+
+    <div class="mySlides">
+        <div class="number">6/8</div>
+        <img src="img\ge1-06.png" width="100%"/>
+        <div class="text">Text 6</div>
+        </div>
+
+        <div class="mySlides">
+            <div class="number">7/8</div>
+            <img src="img\ge1-07.png" width="100%"/>
+            <div class="text">Text 7</div>
+            </div>
+
+            <div class="mySlides">
+                <div class="number">8/8</div>
+                <img src="img\ge1-08.png" width="100%"/>
+                <div class="text">Text 8</div>
+                </div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+<div class="text-align">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+<span class="dot" onclick="currentSlide(4)"></span>
+<span class="dot" onclick="currentSlide(5)"></span>
+<span class="dot" onclick="currentSlide(6)"></span>
+<span class="dot" onclick="currentSlide(7)"></span>
+<span class="dot" onclick="currentSlide(8)"></span>
+</div>
+
+<script>
+var slideIndex=1;
+showSlides(slideIndex);
+
+function plusSlides(n){
+
+showSlides(slideIndex+=n);
+
+}
+
+function currentSlide(n){
+
+showSlides(slideIndex=n);
+
+}
+
+function showSlides(n){
+
+var i;
+
+var slides=document.getElementsByClassName("mySlides");
+
+var dots=document.getElementsByClassName("dot");
+
+if(n>slides.length){slideIndex=1;}
+
+if(n<1){slideIndex=slides.length;}
+
+for(i=0; i<slides.length; i++){
+
+slides[i].style.display="none";
+
+}
+
+for(i=0; i<dots.length; i++){
+
+dots[i].className=dots[i].className.replace("active", "");
+
+}
+
+slides[slideIndex-1].style.display="block";
+
+dots[slideIndex-1].className+=" active";
+
+}
+</script>
 </body>
 </html>
